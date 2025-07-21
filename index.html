@@ -4,132 +4,39 @@
     <meta charset="UTF-8"><!文檔的字符編碼>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"><!device-width=設備寬度, inital-scale=縮放比例>
     <title>技術者 維修網</title>
-    <style>
-    .search-btn {
-        display: flex; /* 設置為 Flex 排版方式 */
-        justify-content: space-between; /* 向左右兩端靠,中間留空 */
-        align-items: center;  /* 垂直方向置中對齊 */
-        flex-wrap: wrap; /* 預防太擠時自動換行 */
-        gap: 10px;
-    }
-        
-    .login-btn, .register-btn, .disc-btn, .emg-btn, .mst-btn {
-        background-color: white;  
-        color: black; /*字體顏色*/
-        font-weight: bold;
-        font-size: 18px; /*字體大小*/
-        padding: 10px 10px; /*字與邊框間距 前:上下,後:左右*/
-        border: none; /*邊框線*/
-        border-radius: 5px; /*邊框圓角*/
-        cursor: pointer; /*游標移動到按鈕範圍的樣式:手型指針*/
-        margin: 10px; 
-        }
-        
-    .search-btn1 {
-        cursor: pointer; /*游標移動到按鈕範圍的樣式:手型指針*/
-        }
-        
-    @media (max-width: 768px) {
-      .menu-item {
-        display: column;
-        width: 100%;
-        margin-bottom: 10px;
-      }
+    <link rel="stylesheet" href="/home/joe/Documents/repair/style1.css">
 
-      .dropdown-list {
-        width: 100%;
-      }
-      
-      .search-btn {
-        flex-direction: column;
-        align-items: stretch;
-      }
-
-      .search-btn form {
-        width: 100%;
-      }
-
-      .emgnc-log-regi {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-        width: 100%;
-      }
-
-      .emgnc-log-regi button {
-        width: 100px;
-      }
-    }   
-    </style>
-     
-    <style>    
-    /* 主選單按鈕 */
-    .menu-container {
-        width: 100%;
-        text-align: center;
-        }
-
-    .menu-item {
-        display: inline-block;
-        width: 12%;
-        text-align: center;
-        background-color: aquamarine;
-        padding: 4px;
-        position: relative;
-        }
-
-    .menu-item a {
-        text-decoration: none;
-        color: rgb(34, 100, 142);
-        font-weight: bold;
-        }
-
-    /* 下拉選單 */
-    .dropdown-list {
-        display: none;
-        position: absolute;
-        top: 100%;
-        margin-top: 10px;
-        left: 0;
-        width: 92%;
-        background-color: white;
-        color: rgb(34, 100, 142);
-        border: 1px solid #ccc;
-        padding: 5px;
-        list-style: none;
-        text-align: center;
-        z-index: 10;
-        }
-
-    .dropdown-list li {
-        padding: 5px;
-        font-weight: bold;
-        cursor: pointer;
-        }
-
-    .dropdown-list li:hover {
-        background-color: lightgray;
-        }
-    </style>
 
 </head>
 <body>
 
-    <div class="search-btn"> 
-        <form role="search" method="get" id="searchform" action="https://cse.google.com/cse" target="_blank">
-        <input type="hidden" name="cx" value="e49f2fb054f9f459e">
-        <input type="text" name="q"  size="30" placeholder="請輸入您要維修的物品,機器或設備..."> <!name="q" 傳遞搜尋關鍵字的必要參數>
-        <button class="search-btn1" type="submit" value="search">搜尋</button>
-        </form>
 
-        <div class=emgnc-log-regi>
-            <button class="disc-btn">討論區</button>
-            <button class="emg-btn">線上維修</button>
-            <button class="mst-btn">維修專家</button>   
-            <button class="login-btn">登入</button>
-            <button class="register-btn">註冊</button>
-        </div>    
+<!-- 建議用 <header> 當頂欄容器，更語意化 -->
+<header class="top-bar">
+  <!-- 你的搜尋區塊，原樣保留 -->
+  <div class="search-btn">
+    <form role="search" method="get" id="searchform"
+          action="https://cse.google.com/cse" target="_blank">
+      <input type="hidden" name="cx" value="e49f2fb054f9f459e">
+      <input type="text" name="q" size="30"
+             placeholder="請輸入您要維修的物品,機器或設備...">
+      <button class="search-btn1" type="submit" value="search">搜尋</button>
+    </form>
+  </div>
+
+  <!-- 右側漢堡選單 -->
+  <div class="bgr">
+    <img src="/home/joe/Pictures/threeline.jpg" alt="menu" width="50" height="30" />
+    <div class="hidden-services">
+      <button class="disc-btn">討論區</button>
+      <button class="emg-btn">線上維修</button>
+      <button class="mst-btn">維修專家</button>
+      <button class="login-btn">登入</button>
+      <button class="register-btn">註冊</button>
     </div>
+  </div>
+</header>
+</br>
     
     <div class="menu-container">
         <div class="menu-item" id="toggleTitle">
@@ -203,44 +110,11 @@
         </div>
     </div>
 
-    <script>
-        function setupDropdown(titleId, listId) {
-            const title = document.getElementById(titleId);
-            const list = document.getElementById(listId);
-
-            title.addEventListener("mouseenter", () => {
-                list.style.display = "block";
-            });
-
-            title.addEventListener("mouseleave", () => {
-                setTimeout(() => {
-                    if (!list.matches(":hover")) {
-                        list.style.display = "none";
-                    }
-                }, 200);
-            });
-
-            list.addEventListener("mouseleave", () => {
-                list.style.display = "none";
-            });
-        }
-
-        setupDropdown("toggleTitle", "trad-industry");
-        setupDropdown("toggleTitle1", "Manufacture");
-        setupDropdown("toggleTitle2", "Mechinery");
-        setupDropdown("toggleTitle3", "Energy-Infra");
-        setupDropdown("toggleTitle4", "science-tech");
-        setupDropdown("toggleTitle5", "Transportation");
-        setupDropdown("toggleTitle6", "Service-cons");
-        
-    </script>
-
-
 
 <br>
 
 
-<img src="/home/joe/Pictures/pexels-fauxels-3184405.jpg" alt="第一張圖from pexels" width="500" />
+<img src="/home/joe/Pictures/pexels-fauxels-3184405.jpg" style="display: block; margin: auto;" alt="first one from pexels" width="500" />
 
 
 <br>
@@ -248,6 +122,10 @@
 
 
 <a href="#">積材超市</a>
+
+
+<script src="main.js" defer></script>
+
+
 </body>
 </html>
-
