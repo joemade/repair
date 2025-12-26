@@ -1,131 +1,145 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hant">
 <head>
-    <meta charset="UTF-8"><!文檔的字符編碼>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"><!device-width=設備寬度, inital-scale=縮放比例>
-    <title>技術者 維修網</title>
-    <link rel="stylesheet" href="/home/joe/Documents/repair/style1.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>產業維修平台</title>
+  <style>
+    body { margin: 0; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+    header { display: flex; justify-content: space-between; align-items: center; padding: 12px 20px; border-bottom: 1px solid #ddd; }
+    .search-box input { padding: 6px 10px; width: 220px; }
+    .top-links a { margin-left: 16px; text-decoration: none; color: #333; font-size: 14px; }
 
+    nav { background: #1f2937; }
+    nav ul { list-style: none; margin: 0; padding: 0; display: flex; }
+    nav > ul > li { position: relative; }
+    nav a { display: block; padding: 12px 16px; color: #fff; text-decoration: none; white-space: nowrap; }
+    nav a:hover { background: #374151; }
 
+    /* dropdown */
+    nav li ul { display: none; position: absolute; top: 100%; left: 0; background: #374151; min-width: 220px; z-index: 1000; }
+    nav li:hover ul { display: block; }
+    nav li ul li a { padding: 10px 14px; font-size: 14px; }
+
+    main {
+      padding: 0;
+    }
+    .hero {
+      height: 420px;
+      background-image: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url('ai-hero-bg.png');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: 36px;
+      margin-bottom: 12px;
+    }
+    .hero p {
+      font-size: 18px;
+      max-width: 600px;
+      line-height: 1.6;
+    }
+    h1 { font-size: 24px; }
+
+    @media (max-width: 900px) {
+      nav ul { flex-wrap: wrap; }
+    }
+  </style>
 </head>
 <body>
 
-
-<!-- 建議用 <header> 當頂欄容器，更語意化 -->
-<header class="top-bar">
-  <!-- 你的搜尋區塊，原樣保留 -->
-  <div class="search-btn">
-    <form role="search" method="get" id="searchform"
-          action="https://cse.google.com/cse" target="_blank">
-      <input type="hidden" name="cx" value="e49f2fb054f9f459e">
-      <input type="text" name="q" size="30"
-             placeholder="請輸入您要維修的物品,機器或設備...">
-      <button class="search-btn1" type="submit" value="search">搜尋</button>
-    </form>
+<header>
+  <div class="search-box">
+    <input type="text" placeholder="站內搜尋…" />
   </div>
-
-  <!-- 右側漢堡選單 -->
-  <div class="bgr">
-    <img src="/home/joe/Pictures/threeline.jpg" alt="menu" width="50" height="30" />
-    <div class="hidden-services">
-      <button class="disc-btn">討論區</button>
-      <button class="emg-btn">線上維修</button>
-      <button class="mst-btn">維修專家</button>
-      <button class="login-btn">登入</button>
-      <button class="register-btn">註冊</button>
-    </div>
+  <div class="top-links">
+    <a href="#">討論區</a>
+    <a href="#">線上維修</a>
+    <a href="#">維修專家</a>
+    <a href="#">登入</a>
+    <a href="#">註冊</a>
   </div>
 </header>
-</br>
-    
-    <div class="menu-container">
-        <div class="menu-item" id="toggleTitle">
-            <a href="#">傳統製造業</a>
-            <ul class="dropdown-list" id="trad-industry">
-                <li><strong>水泥工業</strong></li>
-                <li><strong>鋼鐵工業</strong></li>
-                <li><strong>造紙工業</strong></li>
-                <li><strong>玻璃陶瓷</strong></li>
-                <li><strong>化學工業</strong></li>
-                <li><strong>橡膠工業</strong></li>
-                <li><strong>塑膠工業</strong></li>
-                <li><strong>建材營造</strong></li>
-            </ul>
-        </div>
 
-        <div class="menu-item" id="toggleTitle1">
-            <a href="#">製造加工業</a>
-            <ul class="dropdown-list" id="Manufacture">
-                <li><strong>紡織纖維</strong></li>
-                <li><strong>食品工業</strong></li>
-                <li><strong>生技醫療業</strong></li>
-            </ul>
-        </div>
-        
-        <div class="menu-item" id="toggleTitle2">
-            <a href="#">工業與機械設備</a>
-            <ul class="dropdown-list" id="Mechinery">
-                <li><strong>動力機械</strong></li>
-                <li><strong>傳動機械</strong></li>
-                <li><strong>流體機械</strong></li>
-                <li><strong>精密機械</strong></li>
-                <li><strong>自動化設備</strong></li>
-            </ul>
-        </div>
-        
-        <div class="menu-item" id="toggleTitle3">
-            <a href="#">能源與基礎設施</a>
-            <ul class="dropdown-list" id="Energy-Infra">
-                <li><strong>油電燃氣業</strong></li>
-                <li><strong>綠能環保</strong></li>
-            </ul>
-        </div>
-        
-        <div class="menu-item" id="toggleTitle4">
-            <a href="#">科技產業</a>
-            <ul class="dropdown-list" id="science-tech">
-                <li><strong>電子工業</strong></li>
-                <li><strong>半導體業</strong></li>
-                <li><strong>電腦及週邊設備業</strong></li>
-                <li><strong>光電業</strong></li>
-                <li><strong>通信網路業</strong></li>
-                <li><strong>數位雲端</strong></li>
-            </ul>
-        </div>
-        
-        <div class="menu-item" id="toggleTitle5">
-            <a href="#">交通與物流</a>
-            <ul class="dropdown-list" id="Transportation">
-                <li><strong>航運業</strong></li>
-                <li><strong>汽車工業</strong></li>
-            </ul>
-        </div>
-        
-        <div class="menu-item" id="toggleTitle6">
-            <a href="#">服務業與基礎消費</a>
-            <ul class="dropdown-list" id="Service-cons">
-                <li><strong>居家生活</strong></li>
-                <li><strong>資訊服務業</strong></li>
-            </ul>
-        </div>
+<nav>
+  <ul>
+    <li><a href="#">01 水泥工業</a>
+      <ul>
+        <li><a href="#">02 食品工業</a></li>
+        <li><a href="#">03 塑膠工業</a></li>
+        <li><a href="#">04 紡織纖維</a></li>
+        <li><a href="#">05 電機機械</a></li>
+        <li><a href="#">06 電器電纜</a></li>
+        <li><a href="#">08 玻璃陶瓷</a></li>
+      </ul>
+    </li>
+
+    <li><a href="#">09 造紙工業</a>
+      <ul>
+        <li><a href="#">10 鋼鐵工業</a></li>
+        <li><a href="#">11 橡膠工業</a></li>
+        <li><a href="#">12 汽車工業</a></li>
+        <li><a href="#">13 電子工業</a></li>
+        <li><a href="#">14 建材營造</a></li>
+        <li><a href="#">15 航運業</a></li>
+      </ul>
+    </li>
+
+    <li><a href="#">16 觀光餐旅</a>
+      <ul>
+        <li><a href="#">17 金融保險業</a></li>
+        <li><a href="#">18 貿易百貨業</a></li>
+        <li><a href="#">19 綜合</a></li>
+        <li><a href="#">20 其他業</a></li>
+        <li><a href="#">21 化學工業</a></li>
+        <li><a href="#">22 生技醫療業</a></li>
+      </ul>
+    </li>
+
+    <li><a href="#">23 油電燃氣業</a>
+      <ul>
+        <li><a href="#">24 半導體業</a></li>
+        <li><a href="#">25 電腦及週邊設備業</a></li>
+        <li><a href="#">26 光電業</a></li>
+        <li><a href="#">27 通信網路業</a></li>
+        <li><a href="#">28 電子零組件業</a></li>
+        <li><a href="#">29 電子通路業</a></li>
+      </ul>
+    </li>
+
+    <li><a href="#">30 資訊服務業</a>
+      <ul>
+        <li><a href="#">31 其他電子業</a></li>
+        <li><a href="#">32 文化創意業</a></li>
+        <li><a href="#">33 農業科技業</a></li>
+        <li><a href="#">34 電子商務</a></li>
+        <li><a href="#">35 綠能環保</a></li>
+        <li><a href="#">36 數位雲端</a></li>
+      </ul>
+    </li>
+
+    <li><a href="#">37 運動休閒</a>
+      <ul>
+        <li><a href="#">38 居家生活</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+<main>
+  <section class="hero">
+    <div>
+      <h1>產業維修整合平台</h1>
+      <p>整合各行各業維修資源，快速找到專家、技師與解決方案</p>
     </div>
-
-
-<br>
-
-
-<img src="/home/joe/Pictures/pexels-fauxels-3184405.jpg" style="display: block; margin: auto;" alt="first one from pexels" width="500" />
-
-
-<br>
-<br>
-
-
-<a href="#">積材超市</a>
-
-
-<script src="main.js" defer></script>
-
+  </section>
+</main>
 
 </body>
 </html>
+
