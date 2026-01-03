@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>產業維修平台</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+
+    /* ===== Header ===== */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 20px;
+      border-bottom: 1px solid #ddd;
+      flex-wrap: wrap;
+    }
+
+    .search-box input {
+      padding: 6px 10px;
+      width: 220px;
+    }
+
+    .top-links a {
+      margin-left: 16px;
+      text-decoration: none;
+      color: #333;
+      font-size: 14px;
+    }
+
+    /* ===== Nav ===== */
+    nav {
+      background: #1f2937;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    nav > ul > li {
+      position: relative;
+    }
+
+    nav a {
+      display: block;
+      padding: 12px 16px;
+      color: #fff;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    nav a:hover {
+      background: #374151;
+    }
+
+    /* dropdown (desktop) */
+    nav li ul {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: #374151;
+      min-width: 220px;
+      z-index: 1000;
+    }
+
+    nav li:hover > ul {
+      display: block;
+    }
+
+    nav li ul li a {
+      padding: 10px 14px;
+      font-size: 14px;
+    }
+
+    /* ===== Hero ===== */
+    .hero {
+      height: 420px;
+      background-image:
+        linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)),
+        url('ai-hero-bg.png');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 36px;
+      margin-bottom: 12px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      max-width: 600px;
+      line-height: 1.6;
+    }
+
+    /* ===== Mobile ===== */
+    @media (max-width: 900px) {
+
+      .search-box,
+      .top-links {
+        width: 100%;
+        margin-bottom: 8px;
+      }
+
+      .search-box input {
+        width: 100%;
+      }
+
+      .top-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      nav ul {
+        flex-direction: column;
+      }
+
+      nav li ul {
+        position: static;
+        display: none;
+      }
+
+      nav li.open > ul {
+        display: block;
+      }
+
+      nav a {
+        border-bottom: 1px solid #374151;
+      }
+
+      .hero h1 {
+        font-size: 28px;
+      }
+
+      .hero p {
+        font-size: 16px;
+        padding: 0 12px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="search-box">
+    <input type="text" placeholder="站內搜尋…" />
+  </div>
+
+  <div class="top-links">
+    <a href="#">討論區</a>
+    <a href="#">線上維修</a>
+    <a href="#">維修專家</a>
+    <a href="#">登入</a>
+    <a href="#">註冊</a>
+  </div>
+</header>
+
+<nav>
+  <ul>
+    <li><a href="#">01 水泥工業</a>
+      <ul>
+        <li><a href="#">02 食品工業</a></li>
+        <li><a href="#">03 塑膠工業</a></li>
+        <li><a href="#">04 紡織纖維</a></li>
+        <li><a href="#">05 電機機械</a></li>
+        <li><a href="#">06 電器電纜</a></li>
+        <li><a href="#">08 玻璃陶瓷</a></li>
+      </ul>
+    </li>
+
+    <li><a href="#">09 造紙工業</a>
+      <ul>
+        <li><a href="#">10 鋼鐵工業</a></li>
+        <li><a href="#">11 橡膠工業</a></li>
+        <li><a href="#">12 汽車工業</a></li>
+        <li><a href="#">13 電子工業</a></li>
+        <li><a href="#">14 建材營造</a></li>
+        <li><a href="#">15 航運業</a></li>
+      </ul>
+    </li>
+
+    <li><a href="#">16 觀光餐旅</a>
+      <ul>
+        <li><a href="#">17 金融保險業</a></li>
+        <li><a href="#">18 貿易百貨業</a></li>
+        <li><a href="#">19 綜合</a></li>
+        <li><a href="#">20 其他業</a></li>
+        <li><a href="#">21 化學工業</a></li>
+        <li><a href="#">22 生技醫療業</a></li>
+      </ul>
+    </li>
+
+    <li><a href="#">23 油電燃氣業</a>
+      <ul>
+        <li><a href="#">24 半導體業</a></li>
+        <li><a href="#">25 電腦及週邊設備業</a></li>
+        <li><a href="#">26 光電業</a></li>
+        <li><a href="#">27 通信網路業</a></li>
+        <li><a href="#">28 電子零組件業</a></li>
+        <li><a href="#">29 電子通路業</a></li>
+      </ul>
+    </li>
+
+    <li><a href="#">30 資訊服務業</a>
+      <ul>
+        <li><a href="#">31 其他電子業</a></li>
+        <li><a href="#">32 文化創意業</a></li>
+        <li><a href="#">33 農業科技業</a></li>
+        <li><a href="#">34 電子商務</a></li>
+        <li><a href="#">35 綠能環保</a></li>
+        <li><a href="#">36 數位雲端</a></li>
+      </ul>
+    </li>
+
+    <li><a href="#">37 運動休閒</a>
+      <ul>
+        <li><a href="#">38 居家生活</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+<main>
+  <section class="hero">
+    <div>
+      <h1>產業維修整合平台</h1>
+      <p>整合各行各業維修資源，快速找到專家、技師與解決方案</p>
+    </div>
+  </section>
+</main>
+
+<script>
+  /* 手機版：點擊展開 / 收合子選單 */
+  document.querySelectorAll('nav > ul > li > a').forEach(link => {
+    link.addEventListener('click', function (e) {
+      if (window.innerWidth <= 900) {
+        e.preventDefault();
+        this.parentElement.classList.toggle('open');
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
