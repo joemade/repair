@@ -252,7 +252,18 @@
     link.addEventListener('click', function (e) {
       if (window.innerWidth <= 900) {
         e.preventDefault();
-        this.parentElement.classList.toggle('open');
+
+        const currentLi = this.parentElement;
+
+        // 先關掉其他已開的選單
+        document.querySelectorAll('nav > ul > li.open').forEach(li => {
+          if (li !== currentLi) {
+            li.classList.remove('open');
+          }
+        });
+
+        // 再切換目前這個
+        currentLi.classList.toggle('open');
       }
     });
   });
