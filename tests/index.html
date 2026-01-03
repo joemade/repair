@@ -248,46 +248,47 @@
 
 <script>
   /* 手機版：點擊展開 / 收合子選單 */
-  const menuLinks = document.querySelectorAll('nav > ul > li > a');
   const nav = document.querySelector('nav');
+  const menuLinks = document.querySelectorAll('nav > ul > li > a');
 
-  // 點主選單：只開一個
+  // 點主選單
   menuLinks.forEach(link => {
     link.addEventListener('click', function (e) {
       if (window.innerWidth <= 900) {
         e.preventDefault();
+        e.stopPropagation();
 
         const currentLi = this.parentElement;
+        const isOpen = currentLi.classList.contains('open');
 
-        // 關閉其他選單
+        // 先全部關閉
         document.querySelectorAll('nav > ul > li.open').forEach(li => {
-          if (li !== currentLi) {
-            li.classList.remove('open');
-          }
+          li.classList.remove('open');
         });
 
-        // 切換目前選單
-        currentLi.classList.toggle('open');
+        // 如果原本是關的 → 打開
+        // 如果原本是開的 → 就保持關閉（達成「重複點會收起」）
+        if (!isOpen) {
+          currentLi.classList.add('open');
+        }
       }
     });
   });
 
-  // 點子選單：不影響父選單
+  // 點子選單：不要影響父層
   document.querySelectorAll('nav li ul').forEach(ul => {
     ul.addEventListener('click', e => e.stopPropagation());
   });
 
-  // 點擊頁面任何地方 → 收起所有選單
+  // 點擊導覽列以外的地方 → 全部收起
   document.addEventListener('click', function (e) {
-    if (window.innerWidth <= 900) {
-      if (!nav.contains(e.target)) {
-        document.querySelectorAll('nav > ul > li.open').forEach(li => {
-          li.classList.remove('open');
-        });
-      }
+    if (window.innerWidth <= 900 && !nav.contains(e.target)) {
+      document.querySelectorAll('nav > ul > li.open').forEach(li => {
+        li.classList.remove('open');
+      });
     }
   });
 </script>
-  
+
 </body>
 </html>
