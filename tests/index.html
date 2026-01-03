@@ -73,9 +73,12 @@
       z-index: 1000;
     }
 
-    nav li:hover > ul {
-      display: block;
-    }
+/* 桌機版 dropdown */
+@media (min-width: 901px) {
+  nav li:hover > ul {
+    display: block;
+  }
+}
 
     nav li ul li a {
       padding: 10px 14px;
